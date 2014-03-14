@@ -1,0 +1,27 @@
+{
+  "name": "meinv",
+  "version": "0.1.0",
+  "description": "A tool to get pretty girl images in your command line",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "lijinma <lijinma@126.com>",
+  "license": "MIT",
+  "bin": {
+    "meinv": "./bin/meinv"
+  },
+  "keywords": [
+    "weather",
+    "meinv"
+  ],
+  "engines": {
+    "node": ">= 0.8.1"
+  },
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "request": "~2.34.0",
+    "colorful": "~2.1.0"
+  }
+}
