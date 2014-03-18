@@ -1,14 +1,13 @@
 #!/usr/bin/env node
 
 require('colorful').toxic();
-
 if (!process.argv[2]) {
   console.log('meinv ~ ' + require('../package').version.green);
   console.log(require('../package').description.grey);
-  console.log('  $ '.cyan + 'meinv 小清新');
+  console.log('  $ '.cyan + 'meinv 5');
   return;
 }
 
 
 var meinv = require('..');
-meinv(process.argv.slice(2).join(' '));
+meinv(process.argv[2], process.argv[3]);

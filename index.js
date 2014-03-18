@@ -1,23 +1,18 @@
-var request = require('request');
-var tagsCode = require('./lib/tags_code.json');
-var display = require('./lib/display');
+var request = require('request'),
+    tagsCode = require('./lib/tags_code.json'),
+    display = require('./lib/display');
+    utils = require('./lib/utils');
 
-module.exports = function(word) {
-
-  //Baidu image
-  
-  var url = 'http://image.baidu.com/channel/listjson?pn=0&rn=30&tag1=美女&tag2=全部';
-
-  request.get(url + '&ftags=' + word, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      
-      // console.log('body: ' + body);
-      display.image(body);
-
-    }
-  })
-
-
-
-
+module.exports = function(imagesCount) {
+    //Baidu image
+    var pn = Math.floor(Math.random() * 200);
+    //console.log ('pn : ' + pn);
+    var randomTag = utils.getRandomString(10);
+    var url = 'http://image.baidu.com/channel/listjson?pn=' + pn + '&rn=200&tag1=美女&tag2=全部';
+    request.get(url + '&ftags=' + randomTag, function (error, response, data) {
+        if (!error && response.statusCode == 200) {
+        // console.log('data: ' + data);
+            display.images(data, imagesCount);
+        }
+    });
 };
