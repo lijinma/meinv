@@ -1,6 +1,6 @@
 {
   "name": "meinv",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "A tool to get pretty girl images in your command line",
   "main": "index.js",
   "repository": {
@@ -23,6 +23,8 @@
   "readmeFilename": "README.md",
   "dependencies": {
     "request": "~2.34.0",
-    "colorful": "~2.1.0"
+    "colorful": "~2.1.0",
+    "mkdirp": "0.3.5",
+    "wget": "0.0.1"
   }
 }
