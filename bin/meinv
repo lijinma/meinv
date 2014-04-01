@@ -1,13 +1,30 @@
 #!/usr/bin/env node
+var rmdir = require('rimraf')
+	, utils = require('../lib/utils');
 
 require('colorful').toxic();
 if (!process.argv[2]) {
-  console.log('meinv ~ ' + require('../package').version.green);
-  console.log(require('../package').description.grey);
-  console.log('  $ '.cyan + 'meinv 5');
+  console.log('');
+  console.log(' meinv ~ ' + require('../package').version.green + '\n');
+  console.log(' ' + require('../package').description.grey + '\n');
+  console.log(' （1）获取n张美女图片'.grey + '\n');
+  console.log(' $ '.cyan + 'meinv 5' + '\n');
+  console.log(' （2）删除所有图片'.grey + '\n');
+  console.log(' $ '.cyan + 'meinv rm' + '\n');
   return;
 }
 
+if (process.argv[2] == 'rm') {
+	rmdir(utils.home()+'/meinvImages', function(err) {
+		if (err) {
+			console.log('Error remove : ' + utils.home() + '/meinvImages');
+			return;
+		} else {
+			console.log('美女图片删除干净，可以安心写代码了');
+			return;
+		}
+	});
+}
 
 var meinv = require('..');
 meinv(process.argv[2], process.argv[3]);
