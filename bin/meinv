@@ -15,6 +15,7 @@ if (!process.argv[2]) {
 }
 
 if (process.argv[2] == 'rm') {
+
 	rmdir(utils.home()+'/meinvImages', function(err) {
 		if (err) {
 			console.log('Error remove : ' + utils.home() + '/meinvImages');
